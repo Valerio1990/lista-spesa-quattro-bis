@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Prodotto } from './prodotto';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lista-spesa-quattro-bis-client';
+  nome: string = "";
+  prodotto: Prodotto;
+  listaProdotti: Prodotto[]=[];
+
+  aggiungi() {
+  }
+
+  reset() {
+  }
+
+  aggiornaLista() {
+  }
 }
