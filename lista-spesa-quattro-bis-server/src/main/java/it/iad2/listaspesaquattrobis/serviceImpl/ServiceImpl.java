@@ -1,4 +1,3 @@
-
 package it.iad2.listaspesaquattrobis.serviceImpl;
 
 import it.iad2.listaspesaquattrobis.model.Prodotto;
@@ -10,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ServiceImpl implements  ServiceProdotto{
+public class ServiceImpl implements ServiceProdotto {
+
     @Autowired
     RepositoryProdotto repositoryProdotto;
 
@@ -18,7 +18,7 @@ public class ServiceImpl implements  ServiceProdotto{
     public ListaProdottiDto aggiungi(Prodotto prodotto) {
         repositoryProdotto.save(prodotto);
         return aggiornaLista();
-        
+
     }
 
     @Override
@@ -30,11 +30,15 @@ public class ServiceImpl implements  ServiceProdotto{
     @Override
     public ListaProdottiDto aggiornaLista() {
         ListaProdottiDto dto = new ListaProdottiDto();
-        List<Prodotto>lista = repositoryProdotto.findAll();
-        
-       return dto;
-       
+        List<Prodotto> listaProdotti = repositoryProdotto.findAll();
+        return dto;
+
     }
-    
-    
+
+    @Override
+    public ListaProdottiDto cancellaProdotto(Prodotto prodotto) {
+        repositoryProdotto.delete(prodotto);
+        return aggiornaLista();
+    }
+
 }

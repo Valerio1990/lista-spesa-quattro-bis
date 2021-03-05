@@ -12,4 +12,5 @@ public interface ServiceProdotto {
 
     public ListaProdottiDto aggiornaLista();
 
+    public ListaProdottiDto cancellaProdotto(Prodotto prodotto);
 }

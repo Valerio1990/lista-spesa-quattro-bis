@@ -13,8 +13,6 @@ import { Observable } from 'rxjs';
 export class AppComponent {
 
   prodotto: Prodotto = new Prodotto();
-  nome: string = "";
-  
   listaProdotti: Prodotto[]=[];
 
   constructor (private http:HttpClient) {
