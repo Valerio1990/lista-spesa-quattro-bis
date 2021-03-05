@@ -1,11 +1,10 @@
-
 package it.iad2.listaspesaquattrobis.spesaDto;
 
 import it.iad2.listaspesaquattrobis.model.Prodotto;
 
-
 public class ProdottoDto {
-    private Prodotto prodotto;    
+
+    private Prodotto prodotto;
 
     public ProdottoDto(Prodotto prodotto) {
         this.prodotto = prodotto;
@@ -23,5 +22,5 @@ public class ProdottoDto {
     public String toString() {
         return "ProdottoDto{" + "prodotto=" + prodotto + '}';
     }
-    
+
 }

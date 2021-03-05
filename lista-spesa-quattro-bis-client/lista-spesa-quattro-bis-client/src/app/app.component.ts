@@ -13,10 +13,10 @@ import { Observable } from 'rxjs';
 export class AppComponent {
 
   prodotto: Prodotto = new Prodotto();
-  listaProdotti: Prodotto[]=[];
+  listaProdotti: Prodotto[] = [];
 
-  constructor (private http:HttpClient) {
-    this.aggiornaLista
+  constructor(private http: HttpClient) {
+    this.aggiornaLista();
   }
 
   aggiungi() {
@@ -24,30 +24,30 @@ export class AppComponent {
     let dto: ProdottoDto = new ProdottoDto();
     dto.prodotto = this.prodotto;
     //chiamo il servizio REST
-    let oss:Observable<ListaProdottiDto> = this.http.post<ListaProdottiDto>("http://localhost:8080/aggiungi",dto);
+    let oss: Observable<ListaProdottiDto> = this.http.post<ListaProdottiDto>("http://localhost:8080/aggiungi", dto);
 
-    oss.subscribe(v => this.listaProdotti = v.listaProdottiDto) 
+    oss.subscribe(n => this.listaProdotti = n.listaProdottiDto)
     this.prodotto = new Prodotto();
-    
+
 
   }
 
   reset() {
     //chiamo il servizio REST
-    let ox:Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/reset");
+    let ox: Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/reset");
     ox.subscribe(r => this.listaProdotti = r.listaProdottiDto);
   }
 
   aggiornaLista() {
-     //chiamo il servizio REST
-     let oz: Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/aggiorna-lista");
-     oz.subscribe(v => this.listaProdotti = v.listaProdottiDto);
+    //chiamo il servizio REST
+    let oz: Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/aggiorna-lista");
+    oz.subscribe(v => this.listaProdotti = v.listaProdottiDto);
   }
-  cancella(p:Prodotto){
-    let dto: ProdottoDto=new ProdottoDto();
-    dto.prodotto=p;
+  cancella(p: Prodotto) {
+    let dto: ProdottoDto = new ProdottoDto();
+    dto.prodotto = p;
     let os: Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/elimina-prodotto");
-     os.subscribe(s => this.listaProdotti = s.listaProdottiDto);
-    
+    os.subscribe(s => this.listaProdotti = s.listaProdottiDto);
+
   }
 }

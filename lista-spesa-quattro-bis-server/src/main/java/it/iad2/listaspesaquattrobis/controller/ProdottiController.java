@@ -13,32 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RestController
 public class ProdottiController {
-    
+
     @Autowired
     ServiceProdotto serviceProdotto;
-    
+
     @RequestMapping("/aggiungi")
     @ResponseBody
     public ListaProdottiDto aggiungiProdotto(@RequestBody ProdottoDto dto) {
         return serviceProdotto.aggiungi(dto.getProdotto());
     }
-    
+
     @RequestMapping("/reset")
     @ResponseBody
     public ListaProdottiDto resetLista() {
         return serviceProdotto.aggiornaLista();
     }
-    
+
     @RequestMapping("/aggiorna-lista")
     @ResponseBody
     public ListaProdottiDto aggiornaLista() {
         return serviceProdotto.aggiornaLista();
     }
-    
+
     @RequestMapping("/elimina-prodotto")
     @ResponseBody
     public ListaProdottiDto cancellaProdotto(@RequestBody ProdottoDto dto) {
         return serviceProdotto.cancellaProdotto(dto.getProdotto());
-        
+
     }
 }
