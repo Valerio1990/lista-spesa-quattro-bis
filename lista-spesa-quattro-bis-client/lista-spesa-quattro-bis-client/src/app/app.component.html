@@ -1,3 +1,11 @@
-<input type="text" [(ngModel)]="nome">
+<input type="text" [(ngModel)]="prodotto.nome">
 <button (click)="aggiungi()">aggiungi</button>
+<br>
 <button (click)="reset()">reset</button>
+<ul>
+    <li *ngFor="let p of listaProdotti">
+      {{p.nome}}
+      <button (click)="cancella(p)">X</button>
+    </li>
+  </ul>
+
