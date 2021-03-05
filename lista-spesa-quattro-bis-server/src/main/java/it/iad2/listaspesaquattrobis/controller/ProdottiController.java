@@ -29,7 +29,7 @@ public class ProdottiController {
         return serviceProdotto.aggiornaLista();
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/aggiorna-lista")
     @ResponseBody
     public ListaProdottiDto aggiornaLista() {
         return serviceProdotto.aggiornaLista();

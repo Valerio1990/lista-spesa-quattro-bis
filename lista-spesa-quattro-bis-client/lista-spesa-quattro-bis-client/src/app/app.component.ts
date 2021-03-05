@@ -35,8 +35,14 @@ export class AppComponent {
   }
 
   reset() {
+    //chiamo il servizio REST
+    let ox:Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/reset,");
+    ox.subscribe(r => this.listaProdotti = r.listaProdottiDto);
   }
 
   aggiornaLista() {
+     //chiamo il servizio REST
+     let oz: Observable<ListaProdottiDto> = this.http.get<ListaProdottiDto>("http://localhost:8080/aggiorna-lista");
+     oz.subscribe(v => this.listaProdotti = v.listaProdottiDto);
   }
 }
