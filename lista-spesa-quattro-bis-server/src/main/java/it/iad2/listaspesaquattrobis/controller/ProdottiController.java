@@ -20,18 +20,19 @@ public class ProdottiController {
     @RequestMapping("/aggiungi")
     @ResponseBody
     public ListaProdottiDto aggiungiProdotto(@RequestBody ProdottoDto dto) {
-        throw new UnsupportedOperationException();
+        return serviceProdotto.aggiungi(dto.getProdotto());
     }
 
     @RequestMapping("/reset")
     @ResponseBody
     public ListaProdottiDto resetLista() {
-        throw new UnsupportedOperationException();
+        return serviceProdotto.aggiornaLista();
     }
+
     @RequestMapping("/")
     @ResponseBody
     public ListaProdottiDto aggiornaLista() {
-        throw new UnsupportedOperationException();
+        return serviceProdotto.aggiornaLista();
     }
 
 }
